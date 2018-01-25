@@ -1,0 +1,100 @@
+<div *ngIf="user">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Myprog</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a [routerLink]="['/articles']">List Articles</a></li>
+				<li><a [routerLink]="['/articles/create']">Create Article</a></li>
+				<li><a [routerLink]="['/chat']">Chat</a></li>
+				<li><a href="/api/auth/signout">Signout</a></li>
+				<li><a> Hello {{user.firstName}}</a></li>
+			</ul>
+		</div>
+	</nav>
+</div>
+<div *ngIf="!user">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Myprog</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a [routerLink]="['/authentication/signup']">Signup</a></li>
+				<li><a [routerLink]="['/authentication/signin']">Signin</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Page Content -->
+	<div class="container list">
+		<div class="row">
+			<div class="col-md-4">
+				<form action="" class="search-form">
+					<div class="form-group has-feedback">
+						<label for="search" class="sr-only">Search</label>
+						<input type="text" class="form-control" name="search" id="search" placeholder="search">
+						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4">
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example <span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						<li><a href="#">HTML</a></li>
+						<li><a href="#">CSS</a></li>
+						<li><a href="#">JavaScript</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- Heading Row -->
+		<div class="row">
+			<div class="col-lg-8">
+				<div id="map"></div>
+
+				<div class="map-responsive">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6030.418742494061!2d-111.34563870463673!3d26.01036670629853!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1471908546569" width="700" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<!-- /.col-lg-8 -->
+			<div class="col-lg-4">
+				<div>
+					<h1>MongoDB</h1>
+					<p>
+					</p>
+				</div>
+				<div>
+					<h1>Node.js</h1>
+					<p>
+					</p>
+				</div>
+				<div>
+					<h1>Express.js</h1>
+					<p>
+					</p>
+				</div>
+				<div>
+					<h1>Angular2</h1>
+					<p>
+					</p>
+				</div>
+			</div>
+			<!-- /.col-md-4 -->
+		</div>
+		<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+		</div>
+		<!-- /.container -->
+	</footer>
+
+</div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		<%= title %>
+	</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+	<link href="lib/css/list.css" rel="stylesheet">
+
+	<base href="/">
+</head>
+
+<body>
+	<mean-app>
+
+	</mean-app>
+
+	<script type="text/javascript">
+		window.user = <%- user || 'null' %>;
+	</script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+	</script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="lib/core-js/client/shim.min.js"></script>
+	<script src="lib/zone.js/dist/zone.js"></script>
+	<script src="lib/reflect-metadata/Reflect.js"></script>
+	<script src="lib/systemjs/dist/system.js"></script>
+
+	<script>
+		var packages = {
+			app: {
+				main: './bootstrap.js',
+				defaultExtension: 'js'
+			}
+		};
+
+		var map = {
+			'@angular': 'lib/@angular',
+			'rxjs': 'lib/rxjs'
+		};
+
+		var ngPackageNames = [
+			'common',
+			'compiler',
+			'core',
+			'forms',
+			'http',
+			'router',
+			'platform-browser',
+			'platform-browser-dynamic',
+		];
+
+		ngPackageNames.forEach(function(pkgName) {
+			packages['@angular/' + pkgName] = {
+				main: '/bundles/' + pkgName + '.umd.js',
+				defaultExtension: 'js'
+			};
+		});
+
+		System.config({
+			defaultJSExtensions: true,
+			transpiler: null,
+			packages: packages,
+			map: map
+		});
+		System.import('app').then(null, console.error.bind(console));
+
+	</script>
+
+</body>
+
+</html>
